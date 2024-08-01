@@ -11,6 +11,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from environs import Env
+
+env = Env()
+# will avoid read_env()
+# will rely on separately populated env vars (better practice/more flexability)
+# see: https://forum.djangoproject.com/t/favorite-3rd-party-environment-variables-package/18035/2
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +31,8 @@ SECRET_KEY = 'django-insecure-+^$fs^aqg-dc*-+or5ueyj$ymf47b=g2a&%bg_z!iza%v3ryw=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+
 
 
 # Application definition
