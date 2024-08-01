@@ -9,3 +9,6 @@
 1. `pip install -r requirements.txt`
     - requirements.txt can be subsequently updated (or created)
     - (venv) `pip freeze > requirements.txt`
+
+## Project Creation
+1. (venv) `django-admin startproject leo`
