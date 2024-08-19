@@ -12,3 +12,6 @@
 
 ## Project Creation
 1. (venv) `django-admin startproject leo`
+
+## App(s) Creation
+1. (venv) `python manage.py startapp users`
