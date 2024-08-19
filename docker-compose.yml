@@ -1,0 +1,16 @@
+services:
+  leoapi:
+    build: .
+    container_name: leoapi
+    env_file:
+      - .env
+    ports:
+      - "8001:8001"
+    volumes:
+      # use of volume suggested here: https://stackoverflow.com/questions/74527573/docker-compose-connect-to-host-when-host-docker-internal-doesnt-work/74661471#74661471
+      - /run/mysqld/mysqld.sock:/run/mysqld/mysqld.sock
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /code
