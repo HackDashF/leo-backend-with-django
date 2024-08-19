@@ -4,7 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+django = "==5.0.7"
+asgiref = "==3.8.1"
+djangorestframework = "==3.15.2"
+environs = "==11.0.0"
+marshmallow = "==3.21.3"
+mysqlclient = "==2.2.4"
+packaging = "==24.1"
+python-dotenv = "==1.0.1"
+sqlparse = "==0.5.1"
+typing-extensions = "==4.12.2"
 
 [dev-packages]
 
