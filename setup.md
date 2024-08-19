@@ -15,3 +15,8 @@
 
 ## App(s) Creation
 1. (venv) `python manage.py startapp users`
+
+## Database Migration
+1. (venv) `python manage.py makemigrations`
+2. (venv) `python manage.py migrate`
+3. (venv) `python manage.py createsuperuser`
