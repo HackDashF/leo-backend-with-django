@@ -35,7 +35,6 @@ DEBUG = True
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -52,6 +51,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
 
     'users',
+    'adhafera',
 ]
 
 AUTH_USER_MODEL = 'users.User'

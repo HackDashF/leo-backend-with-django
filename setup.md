@@ -15,6 +15,7 @@
 
 ## App(s) Creation
 1. (venv) `python manage.py startapp users`
+2. (venv) `python manage.py startapp adhafera`
 
 ## Database Migration
 1. (venv) `python manage.py makemigrations`
