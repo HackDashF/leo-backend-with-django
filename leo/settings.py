@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from environs import Env
+from datetime import timedelta
 
 env = Env()
 # will avoid read_env()
@@ -44,6 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework',
+    'djoser',
 
     'users',
 ]
@@ -96,6 +100,29 @@ DATABASES = {
         'USER': env.str('DB_USER'),
         'PASSWORD': env.str('DB_PASS'),
     }
+}
+
+
+REST_FRAMEWORK = {
+    'COERCE_DECIMAL_TO_STRING': False,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+
+DJOSER = {
+    'SERIALIZERS': {
+        'user_create': 'users.serializers.UserCreateSerializer',
+        'current_user': 'users.serializers.UserSerializer',
+    }
+}
+
+
+SIMPLE_JWT = {
+    'AUTH_HEADER_TYPES': ('JWT',),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1), # hours=1 for poduction
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7), # days=1 for production
 }
 
 
