@@ -1,3 +1,6 @@
+# Generic folder for development resources
+gitignored/
+
 # Zed editor configuration
 pyrightconfig.json
 
