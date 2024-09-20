@@ -49,12 +49,15 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
 
+    'debug_toolbar',
+
     'users',
 ]
 
 AUTH_USER_MODEL = 'users.User'
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -63,6 +66,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+# stuff to force debug tool bar to work
+def show_toolbar(request):
+    return True
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
+}
 
 ROOT_URLCONF = 'leo.urls'
 
@@ -101,6 +112,11 @@ DATABASES = {
         'PASSWORD': env.str('DB_PASS'),
     }
 }
+
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 
 
 REST_FRAMEWORK = {
