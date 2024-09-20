@@ -1,6 +1,9 @@
 # Generic folder for development resources
 gitignored/
 
+# Collected static files (via `python manage.py collectstatic`)
+/static/
+
 # Zed editor configuration
 pyrightconfig.json
 
