@@ -21,3 +21,9 @@
 1. (venv) `python manage.py makemigrations`
 2. (venv) `python manage.py migrate`
 3. (venv) `python manage.py createsuperuser`
+
+## Serving - Development
+1. `python manage.py runserver`
+
+## Serving - Production
+1. `gunicorn leo.wsgi`
