@@ -5,17 +5,21 @@ ENV PYTHONUNBUFFERED=1
 
 EXPOSE 8001
 
-WORKDIR /leo 
+WORKDIR /leo
 
 # COPY requirements.txt /leo
 COPY /requirements.txt .
 
 RUN pip3 install -r requirements.txt --no-cache-dir
 
-# COPY . /leo 
-COPY . ./ 
+# COPY . /leo
+COPY . ./
 
-# ENTRYPOINT ["python3"] 
-ENTRYPOINT ["python"] 
+# ENTRYPOINT ["python3"]
+# ENTRYPOINT ["python"]
 
-CMD ["manage.py", "runserver", "0.0.0.0:8001"]
+# CMD ["manage.py", "runserver", "0.0.0.0:8001"]
+
+
+# Alternate setup ideas nicely layed out here:
+# https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
