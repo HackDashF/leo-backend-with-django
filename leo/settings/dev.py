@@ -2,9 +2,10 @@ from .common import *
 
 DEBUG = True
 
-# stuff to force debug tool bar to work
-def show_toolbar(request):
-    return True
+# # stuff to force debug tool bar to work
+# def show_toolbar(request):
+#     return True
+
 DEBUG_TOOLBAR_CONFIG = {
-    "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
+    "SHOW_TOOLBAR_CALLBACK" : lambda request: True,
 }
