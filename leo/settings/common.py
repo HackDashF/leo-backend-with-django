@@ -20,19 +20,14 @@ env = Env()
 # see: https://forum.djangoproject.com/t/favorite-3rd-party-environment-variables-package/18035/2
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+^$fs^aqg-dc*-+or5ueyj$ymf47b=g2a&%bg_z!iza%v3ryw='
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+SECRET_KEY = env.str('SECRET_KEY')
 
 
 # Application definition
@@ -67,14 +62,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-
-# stuff to force debug tool bar to work
-def show_toolbar(request):
-    return True
-DEBUG_TOOLBAR_CONFIG = {
-    "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
-}
 
 ROOT_URLCONF = 'leo.urls'
 
