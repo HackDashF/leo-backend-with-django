@@ -12,6 +12,7 @@ from adhafera.dbmodify import clear_expired_share_codes, delete_list_item, delet
 from .dbquery import check_user_has_access_to_list, get_user_list_count
 from .models import List, Item, ListShareCode, ListUser
 from .serializers import ListSerializer, ItemSerializer, ListUpdateSerializer, ShareCodeSerializer
+import logging
 
 
 # NOTE: login is required for all endpoints (configured in settings)
@@ -25,6 +26,8 @@ from .serializers import ListSerializer, ItemSerializer, ListUpdateSerializer, S
 #   ... server will assume changes from client are fully informed of current state
 #   ... server will enforce valid list state (sequential item positions for example)
 
+logger = logging.getLogger(__name__)
+
 
 @api_view(['GET', 'POST'])
 @atomic
@@ -32,6 +35,8 @@ def lists(request):
     if request.user.is_authenticated is False:
         return Response({'error': 'Must be logged in to save a list'}, status=status.HTTP_401_UNAUTHORIZED)
     user_id = request.user.id
+
+    logger.info('lists endpoint called')
 
     # given a GET request, return the user's lists
     if request.method == 'GET':
