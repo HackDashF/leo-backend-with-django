@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'djoser',
+    'admin_honeypot',
 
     'debug_toolbar',
 

@@ -20,8 +20,13 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 
 urlpatterns = [
     path('', include('core.urls')),
-    path('admin/', admin.site.urls),
+
+    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    path('frontline/', admin.site.urls),
+
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
+
     path('adhafera/', include('adhafera.urls')),
+
 ] + debug_toolbar_urls()
