@@ -1,5 +1,5 @@
 from .common import *
-from .dbmysql import *
+from .dbsqlite import *
 
 DEBUG = True
 
