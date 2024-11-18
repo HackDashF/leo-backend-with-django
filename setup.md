@@ -3,6 +3,7 @@
 ## Django Setup
 
 1. `Pipenv install django` (create virtual environment including Django)
+1. `Pipenv install` (setup virtual environment from existing Pipenv.lock)
 2. `Pipenv shell` (to enter the virtual environment)
 
 ## Install Other Package Dependancies
