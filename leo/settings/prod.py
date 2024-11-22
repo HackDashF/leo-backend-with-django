@@ -2,6 +2,7 @@ from environs import Env
 
 from .components.common import *
 from .components.dbsqlite import *
+from .components.trustedproxy import *
 
 env = Env()
 
