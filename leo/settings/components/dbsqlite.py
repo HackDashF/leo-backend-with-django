@@ -1,4 +1,4 @@
-from leo.settings.common import BASE_DIR
+from .common import BASE_DIR
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

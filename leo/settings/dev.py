@@ -1,5 +1,5 @@
-from .common import *
-from .dbmysql import *
+from .components.common import *
+from .components.dbsqlite import *
 
 DEBUG = True
 

@@ -1,7 +1,7 @@
 from environs import Env
 
-from .common import *
-from .dbmysql import *
+from .components.common import *
+from .components.dbsqlite import *
 
 env = Env()
 
