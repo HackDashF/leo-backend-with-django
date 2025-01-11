@@ -11,7 +11,7 @@ from adhafera.dbmodify import clear_expired_share_codes, delete_list_item, delet
 
 from .dbquery import check_user_has_access_to_list, get_user_list_count
 from .models import List, Item, ListShareCode, ListUser
-from .serializers import ListSerializer, ItemSerializer, ListUpdateSerializer, ShareCodeSerializer
+from .serializers import ItemUpdateSerializer, ListSerializer, ItemSerializer, ListUpdateSerializer, ShareCodeSerializer
 import logging
 
 
@@ -104,7 +104,7 @@ def item(request, list_id, item_id):
     item = get_object_or_404(Item, pk=item_id)
 
     if request.method == 'PATCH':
-        serializer = ItemSerializer(item, data=request.data)
+        serializer = ItemUpdateSerializer(item, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
